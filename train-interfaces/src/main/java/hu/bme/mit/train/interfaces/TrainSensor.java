@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.RowSortedTable;
 
 public interface TrainSensor {
 
@@ -15,8 +16,8 @@ public interface TrainSensor {
 
 	LocalTime getTime(); 
 
-	Boolean isEmpty(HashBasedTable<LocalTime, Integer, Integer>  table); 
+	Boolean isEmpty(RowSortedTable<LocalTime, Integer, Integer>  table); 
 
-	HashBasedTable getTable(); 
+	RowSortedTable<LocalTime, Integer, Integer>  getTable(); 
 
 }

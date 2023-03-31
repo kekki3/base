@@ -1,6 +1,7 @@
 package hu.bme.mit.train.sensor;
 
 import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.RowSortedTable;
 
 import hu.bme.mit.train.interfaces.TrainController;
 import hu.bme.mit.train.interfaces.TrainSensor;
@@ -12,7 +13,7 @@ public class TrainSensorImpl implements TrainSensor {
 	private TrainController controller;
 	private TrainUser user;
 	private int speedLimit = 5;
-	private static HashBasedTable<LocalTime,Integer,Integer> table;   
+	private RowSortedTable<LocalTime,Integer,Integer> table;   
 	  
 
 	public TrainSensorImpl(TrainController controller, TrainUser user) {
@@ -32,18 +33,29 @@ public class TrainSensorImpl implements TrainSensor {
 	}
 	@Override
 	public void addTachoGraphElement(int referenceSpeed, LocalTime time, int position){
-	table.put(time, referenceSpeed, position); 
+		try {
+			table.put(time, referenceSpeed, position); 
+		} catch (Exception e) {
+			//TODO: handle exception
+		}
+		
 	} 
 	@Override
 	public LocalTime getTime(){
-		return java.time.LocalTime.now(); 
+		LocalTime now = LocalTime.now() ;
+		return now; 
 	} 	
 	@Override
-	public Boolean isEmpty( HashBasedTable<LocalTime, Integer, Integer>  table){
-		return table.isEmpty(); 
+	public Boolean isEmpty( RowSortedTable<LocalTime, Integer, Integer>  table){
+		try {
+			return table.isEmpty(); 
+		} catch (Exception e) {
+			return true;
+		}
+		
 	} 
 	@Override
-	public HashBasedTable getTable(){
+	public RowSortedTable<LocalTime, Integer, Integer>  getTable(){
 		return table; 
 	} 
 

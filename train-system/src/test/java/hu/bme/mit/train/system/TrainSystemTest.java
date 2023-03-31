@@ -1,5 +1,7 @@
 package hu.bme.mit.train.system;
 
+import java.time.LocalTime;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
