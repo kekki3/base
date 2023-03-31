@@ -1,6 +1,6 @@
-# Train Speed Controller
+## Train Speed Controller
 
-This is a sample application for the verification laboratory.
+**This is a sample application for the verification laboratory.**
 
 ## Getting started
 
@@ -42,11 +42,11 @@ To compile and run tests also execute:
 
 The application represents a simple train controller system with the following three components.
 
-* Sensor: The sensor can detect the change in the speed limit of the track and can signal in such cases to the controller.
-* Controller: The controller is responsible for controlling the reference speed of the train. The reference speed is set by the user, but the speed limit must also be kept.
-* User: The user can manipulate the reference speed of the train using a joystick.
+1. * Sensor: The sensor can detect the change in the speed limit of the track and can signal in such cases to the controller.
+2. * Controller: The controller is responsible for controlling the reference speed of the train. The reference speed is set by the user, but the speed limit must also be kept.
+3. * User: The user can manipulate the reference speed of the train using a joystick.
 
-### Behavior
+#### Behavior
 
 Setting the reference speed of the train works in the following way.
 * The user can set the position of a joystick, which can be zero or a positive/negative number.
