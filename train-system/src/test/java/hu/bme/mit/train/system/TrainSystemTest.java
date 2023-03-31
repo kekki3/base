@@ -21,6 +21,7 @@ public class TrainSystemTest {
 		controller = system.getController();
 		sensor = system.getSensor();
 		user = system.getUser();
+		
 
 		sensor.overrideSpeedLimit(50);
 	}
@@ -56,7 +57,16 @@ public void EBreakTest(){
 	user.overrideJoystickPosition(30);
 	controller.followSpeed();
 	Assert.assertEquals(0, controller.getReferenceSpeed()); 
-} 	
+} 
+@Test
+public void GraphTest(){
+	user.overrideJoystickPosition(10);
+	controller.followSpeed();
+	sensor.addTachoGraphElement(controller.getReferenceSpeed(), sensor.getTime(), user.getJoystickPosition());
+	Assert.assertEquals(false, sensor.isEmpty(sensor.getTable()));
+} 
+
+
 
 	
 }
