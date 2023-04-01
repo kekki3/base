@@ -16,8 +16,8 @@ public interface TrainSensor {
 
 	LocalTime getTime(); 
 
-	Boolean isEmpty(RowSortedTable<LocalTime, Integer, Integer>  table); 
+	Boolean isEmpty(HashBasedTable<LocalTime, Integer, Integer>  table); 
 
-	RowSortedTable<LocalTime, Integer, Integer>  getTable(); 
+	HashBasedTable<LocalTime, Integer, Integer>  getTable(); 
 
 }

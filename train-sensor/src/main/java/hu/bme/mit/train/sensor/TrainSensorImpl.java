@@ -13,7 +13,7 @@ public class TrainSensorImpl implements TrainSensor {
 	private TrainController controller;
 	private TrainUser user;
 	private int speedLimit = 5;
-	private RowSortedTable<LocalTime,Integer,Integer> table;   
+	private HashBasedTable<LocalTime, Integer, Integer> table = HashBasedTable.create();     
 	  
 
 	public TrainSensorImpl(TrainController controller, TrainUser user) {
@@ -46,7 +46,7 @@ public class TrainSensorImpl implements TrainSensor {
 		return now; 
 	} 	
 	@Override
-	public Boolean isEmpty( RowSortedTable<LocalTime, Integer, Integer>  table){
+	public Boolean isEmpty( HashBasedTable<LocalTime, Integer, Integer>  table){
 		try {
 			return table.isEmpty(); 
 		} catch (Exception e) {
@@ -55,7 +55,7 @@ public class TrainSensorImpl implements TrainSensor {
 		
 	} 
 	@Override
-	public RowSortedTable<LocalTime, Integer, Integer>  getTable(){
+	public HashBasedTable<LocalTime, Integer, Integer>  getTable(){
 		return table; 
 	} 
 
