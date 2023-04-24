@@ -20,4 +20,5 @@ public interface TrainSensor {
 
 	HashBasedTable<LocalTime, Integer, Integer>  getTable(); 
 
+	
 }
