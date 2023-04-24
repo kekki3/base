@@ -30,6 +30,14 @@ public class TrainSensorImpl implements TrainSensor {
 	public void overrideSpeedLimit(int speedLimit) {
 		this.speedLimit = speedLimit;
 		controller.setSpeedLimit(speedLimit);
+		if (speedLimit < 0 || speedLimit> 500)
+			user.setAlarmState(true);
+		
+		else if (controller.getReferenceSpeed() * 0.5 >= speedLimit )
+			user.setAlarmState(true);
+		else {
+			user.setAlarmState(false);
+		}
 	}
 	@Override
 	public void addTachoGraphElement(int referenceSpeed, LocalTime time, int position){
